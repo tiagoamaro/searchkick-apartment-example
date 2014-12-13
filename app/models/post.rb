@@ -1,4 +1,4 @@
 class Post < ActiveRecord::Base
-  searchkick
   include SchemaSearchable
+  searchkick index_name: tenant_index_name
 end
