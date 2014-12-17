@@ -1,5 +1,5 @@
 namespace :searchkick do
-  desc 'Reindex all models on all tenants (using background jobs)'
+  desc 'Reindex all models on all tenants'
   task reindex_tenants: :environment do
     Rails.application.eager_load!
 
