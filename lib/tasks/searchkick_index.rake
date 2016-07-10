@@ -3,11 +3,10 @@ namespace :searchkick do
   task reindex_tenants: :environment do
     Rails.application.eager_load!
 
-    User.pluck(:database).each do |schema|
-      Apartment::Tenant.switch schema
-      (Searchkick::Reindex.instance_variable_get(:@descendents) || []).each do |model|
+    Apartment::Tenant.each do |schema|
+      Apartment::Tenant.switch!(schema)
+      Searchkick.models.each do |model|
         puts "Reindexing #{model.name} on #{schema}"
-        Apartment::Tenant.switch schema
         model.reindex
       end
     end
