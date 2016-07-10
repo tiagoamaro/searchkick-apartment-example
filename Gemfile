@@ -39,4 +39,4 @@ gem 'pg'
 # gem 'debugger', group: [:development, :test]
 
 gem 'apartment', '1.1.0'
-gem 'searchkick', '0.8.5'
+gem 'searchkick', '1.3.0'
