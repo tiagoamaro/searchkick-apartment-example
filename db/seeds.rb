@@ -16,14 +16,13 @@ User.find_or_create_by(name: 'Daniela', database: 'daniela_db')
 
 Apartment::Tenant.switch('nick_db')
 
-Post.find_or_create_by(body: "Nick's Post 1")
-Post.find_or_create_by(body: "Nick's Post 2")
+Post.find_or_create_by(body: 'Woot Woot')
+Post.find_or_create_by(body: 'Will Write about something...someday')
 
 # Create Posts for Daniela
 
 Apartment::Tenant.switch('daniela_db')
 
-Post.find_or_create_by(body: "Daniela's Post 1")
-Post.find_or_create_by(body: "Daniela's Post 2")
-Post.find_or_create_by(body: "Daniela's Post 3")
-Post.find_or_create_by(body: "Daniela's Post 4")
+Post.find_or_create_by(body: 'My First Post')
+Post.find_or_create_by(body: 'How to developer super apps')
+Post.find_or_create_by(body: "Searchkick? It's awesome")
