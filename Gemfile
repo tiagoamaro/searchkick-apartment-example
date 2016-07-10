@@ -38,5 +38,5 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'apartment'
-gem 'searchkick'
+gem 'apartment', '0.25.2'
+gem 'searchkick', '0.8.5'
