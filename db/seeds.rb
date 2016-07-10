@@ -12,16 +12,26 @@
 User.find_or_create_by(name: 'Nick', database: 'nick_db')
 User.find_or_create_by(name: 'Daniela', database: 'daniela_db')
 
+begin
+  Apartment::Tenant.drop('nick_db')
+  Apartment::Tenant.drop('daniela_db')
+rescue StandardError => _
+  # NOOP
+ensure
+  Apartment::Tenant.create('nick_db')
+  Apartment::Tenant.create('daniela_db')
+end
+
 # Create Posts for Nick
 
-Apartment::Tenant.switch('nick_db')
+Apartment::Tenant.switch!('nick_db')
 
 Post.find_or_create_by(body: 'Woot Woot')
 Post.find_or_create_by(body: 'Will Write about something...someday')
 
 # Create Posts for Daniela
 
-Apartment::Tenant.switch('daniela_db')
+Apartment::Tenant.switch!('daniela_db')
 
 Post.find_or_create_by(body: 'My First Post')
 Post.find_or_create_by(body: 'How to developer super apps')
