@@ -4,15 +4,6 @@ class User < ActiveRecord::Base
   after_create  :create_schema
   after_destroy :destroy_schema
 
-  # Writing Apartment::Tenant every time is kind of boring...
-  def self.switch(database)
-    Apartment::Tenant.switch(database)
-  end
-
-  def switch
-    Apartment::Tenant.switch(database)
-  end
-
   private
 
   def create_schema
